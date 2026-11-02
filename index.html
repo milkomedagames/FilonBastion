@@ -7,6 +7,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Oxanium:wght@500;600;700;800&family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script>try{var t=localStorage.getItem("filon-bastion-theme");if(t==="light"||t==="dark")document.documentElement.dataset.theme=t;}catch(e){}</script>
 <style>
 :root{
   --panel:rgba(242,246,255,.96); --panel2:rgba(218,227,250,.75); --ink:#141A40; --mute:#59638E; --line:rgba(60,80,160,.18);
@@ -474,6 +475,115 @@ body.tron .dock .tabs{background:#0C0222}
 body.tron .dock .tabs button[aria-selected="true"]{background:rgba(255,43,214,.18)}
 body.tron .card .ic{background:rgba(6,2,26,.85)}
 body.tron .sheet{box-shadow:0 0 0 1px rgba(0,240,255,.1),0 18px 50px rgba(40,0,60,.6)}
+
+/* ================= Menu d’accueil : thème clair / sombre, fond opaque ================= */
+:root{--ibg:#E8EDF8;--isurf:#FFFFFF;--isurf2:#EFF3FB;--iline:rgba(40,60,140,.17);--iink:#141A40;--imute:#535D88;--ifield:#F5F7FC;--iacc:#08877C;--iaccink:#FFFFFF;--igold:#975700;--ish:0 1px 2px rgba(20,30,80,.06),0 8px 24px -14px rgba(20,30,80,.25)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--ibg:#0A0D2A;--isurf:#13183F;--isurf2:#1A2052;--iline:rgba(140,165,255,.2);--iink:#EEF3FF;--imute:#A3AEDA;--ifield:#0D1134;--iacc:#5EF2D6;--iaccink:#062A24;--igold:#FFD873;--ish:none}}
+:root[data-theme="dark"]{--ibg:#0A0D2A;--isurf:#13183F;--isurf2:#1A2052;--iline:rgba(140,165,255,.2);--iink:#EEF3FF;--imute:#A3AEDA;--ifield:#0D1134;--iacc:#5EF2D6;--iaccink:#062A24;--igold:#FFD873;--ish:none}
+.intro{background:radial-gradient(1000px 520px at 12% -12%,color-mix(in srgb,var(--iacc) 11%,transparent),transparent 70%),var(--ibg);place-items:start center;padding:28px 24px 40px}
+.intro [hidden]{display:none!important}
+.intro .intro-in{color:var(--iink);gap:30px;max-width:1040px}
+.intro .ihead{justify-content:space-between;align-items:flex-end;gap:18px}
+.intro h1{font-size:clamp(40px,6.4vw,68px);color:var(--iink);text-shadow:none}
+.intro .tag{margin:10px 0 0;font-size:16px;color:var(--imute);max-width:44ch}
+.itools{display:flex;gap:8px;flex-wrap:wrap}
+.itb{display:flex;align-items:center;gap:8px;border:1px solid var(--iline);background:var(--isurf);color:var(--iink);border-radius:12px;padding:10px 15px;font:600 14px var(--display);box-shadow:var(--ish)}
+.itb svg{width:18px;height:18px;flex:none}
+.itb:hover{border-color:var(--iacc)}
+.istep{display:flex;flex-direction:column;gap:12px}
+.istep h2{margin:0;display:flex;align-items:center;gap:10px;font:700 19px var(--display);color:var(--iink)}
+.istep h2 i{font-style:normal;flex:none;width:27px;height:27px;border-radius:50%;display:grid;place-items:center;background:var(--iacc);color:var(--iaccink);font:800 14px var(--display)}
+.modes{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+.mode{display:grid;grid-template-columns:auto 1fr;gap:2px 13px;align-items:center;text-align:left;padding:14px 16px;border-radius:16px;background:var(--isurf);border:1.5px solid var(--iline);color:var(--iink);box-shadow:var(--ish)}
+.mode .e{grid-row:span 2;width:46px;height:46px;border-radius:13px;display:grid;place-items:center;font-size:24px;background:var(--isurf2)}
+.mode b{font:700 18px var(--display)}
+.mode small{font-size:13px;line-height:1.3;color:var(--imute)}
+.mode:hover{border-color:color-mix(in srgb,var(--iacc) 55%,var(--iline))}
+.mode[aria-checked="true"]{border-color:var(--iacc);background:color-mix(in srgb,var(--iacc) 9%,var(--isurf));box-shadow:inset 0 0 0 1px var(--iacc)}
+.mode[aria-checked="true"] .e{background:var(--iacc)}
+.intro .coopbox,.intro .diff{background:var(--isurf);border-color:var(--iline);box-shadow:var(--ish)}
+.intro .coopbox p,.intro .diff p{color:var(--imute);font-size:13.5px}
+.intro .nph b{min-width:68px;color:var(--iink)}
+.intro .nph span,.intro .mdd{font-size:12.5px;color:var(--imute)}
+.intro .mdd:empty{display:none}
+.intro .npseg button,.intro .kseg button,.intro .dseg button{border-color:var(--iline);background:var(--isurf2);color:var(--iink)}
+.intro .npseg button[aria-checked="true"]{background:var(--iacc);color:var(--iaccink);border-color:transparent}
+.intro .npseg .tmb{width:auto;padding:0 12px;border-style:dashed}
+.intro .npseg .tmb[aria-pressed="true"]{background:rgba(255,164,92,.3)}
+.intro .kseg button[aria-pressed="true"]{background:var(--pc);color:#0A0C24;border-color:transparent}
+.intro .dseg button[aria-checked="true"]{background:var(--h);color:#0A0C24;border-color:transparent}
+.intro .slot{background:var(--isurf2);border-color:var(--iline);border-left-color:var(--pc)}
+.intro .slot input,.intro .net input{color:var(--iink);background:var(--ifield);border-color:var(--iline)}
+.intro .slot .you,.intro .net .nh span,.intro .nor,.intro .ncode small{color:var(--imute)}
+.intro .net{background:var(--isurf2);border-color:var(--iline)}
+.intro .net .nh b,.intro .diff .dh b{color:var(--iink)}
+.intro .net .nst{color:var(--imute)}
+.intro .ncode{color:var(--iacc)}
+.intro .nbtn{border-color:var(--iline);background:var(--isurf);color:var(--iink)}
+.intro .nbtn.pri{background:var(--iacc);color:var(--iaccink);border-color:transparent}
+.intro .nbtn.pri:hover:not(:disabled){filter:brightness(1.08)}
+.intro .rndbox{background:var(--isurf);border-color:color-mix(in srgb,var(--igold) 45%,transparent);margin-top:2px}
+.intro .rndbox b{color:var(--iink)} .intro .rndbox span{color:var(--imute)}
+.intro .bonus{color:var(--igold)} .intro .bonus:empty{display:none}
+.intro .keys{color:var(--imute)} .intro .credits{font-size:12px;max-width:80ch}
+.intro .wcard{box-shadow:var(--ish)}
+:root[data-theme="light"] .intro .diff .dh span{color:color-mix(in srgb,var(--h) 55%,#000)}
+@media (prefers-color-scheme:light){:root:not([data-theme="dark"]) .intro .diff .dh span{color:color-mix(in srgb,var(--h) 55%,#000)}}
+@media (max-width:760px){.modes{grid-template-columns:1fr;gap:8px}.mode{padding:10px 12px}.mode .e{width:40px;height:40px;font-size:20px}.intro .ihead{align-items:flex-start}.intro{padding:20px 14px 32px}}
+/* fenêtres Paramètres et Comment jouer */
+dialog.idlg{width:min(460px,calc(100% - 32px));max-height:calc(100% - 40px);overflow-y:auto}
+dialog.idlg.wide{width:min(620px,calc(100% - 32px))}
+dialog.idlg[open]{display:flex;flex-direction:column;gap:12px}
+.idlg .dlh{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:2px}
+.idlg .dlh h2{margin:0}
+.dlx{width:36px;height:36px;border-radius:11px;border:1px solid var(--line);background:var(--panel2);color:var(--ink);font-size:15px;flex:none}
+.dlx:hover{border-color:var(--acc)}
+.idlg h3{margin:8px 0 -2px}
+.idlg>p{margin:0;font-size:14.5px;line-height:1.5}
+.seg3{display:grid;grid-template-columns:repeat(3,1fr);gap:3px;background:var(--panel2);border-radius:12px;padding:3px}
+.seg3 button{border:0;background:transparent;border-radius:9px;padding:9px 6px;font:700 14px var(--display);color:var(--mute)}
+.seg3 button[aria-checked="true"]{background:var(--acc);color:var(--onacc)}
+.idlg .sw.solo{padding:2px 0}
+.idlg .saveb button{border:1px solid var(--line);background:var(--panel2);color:var(--ink)}
+.idlg .saveb button:hover{border-color:var(--acc)}
+.idlg .keys{color:var(--mute);font-size:13.5px;max-width:none}
+.idlg kbd{border-color:var(--line);color:var(--ink)}
+.idlg .sndbox{margin:0}
+
+/* cartes des mondes : fond opaque, version claire lisible */
+.intro .wcard{background-color:#0B0E2C}
+:root[data-theme="light"] .intro .wcard:not(.gridw){background:linear-gradient(160deg,color-mix(in srgb,var(--a) 24%,#fff),color-mix(in srgb,var(--a) 7%,#fff) 75%);border-color:color-mix(in srgb,var(--a) 40%,rgba(40,60,140,.18))}
+:root[data-theme="light"] .intro .wcard:not(.gridw)::before{opacity:.5}
+:root[data-theme="light"] .intro .wcard:not(.gridw) .wnum{color:#535D88}
+:root[data-theme="light"] .intro .wcard:not(.gridw) .wgo b{color:#141A40}
+:root[data-theme="light"] .intro .wcard:not(.gridw) .wd,.intro .wcard:not(.gridw) .wdr{color:#3E4770}
+:root[data-theme="light"] .intro .wcard:not(.gridw) .ws{color:#08776D}
+:root[data-theme="light"] .intro .wcard.done:not(.gridw) .ws{color:#975700}
+:root[data-theme="light"] .intro .wcard:not(.gridw) .wdr b{color:color-mix(in srgb,var(--h) 55%,#000)}
+:root[data-theme="light"] .intro .wcard:not(.gridw) .wdots i{background:rgba(20,30,80,.13)}
+:root[data-theme="light"] .intro .wcard:not(.gridw) .wdots i.on{background:var(--h);box-shadow:none}
+:root[data-theme="light"] .intro .wcard:not(.gridw) .wreset{border-color:rgba(8,135,124,.5);background:rgba(8,135,124,.1);color:#065F57}
+:root[data-theme="light"] .intro .wcard:not(.gridw) .wreset:hover{background:rgba(8,135,124,.2);color:#04463F}
+:root[data-theme="light"] .intro .wcard:not(.gridw) .wreset.cf{background:rgba(196,47,85,.12);border-color:#C42F55;color:#9B1F42}
+:root[data-theme="light"] .intro .wcard.lock:not(.gridw){filter:grayscale(1);opacity:.6;background:#F3F5FA;border-color:rgba(40,60,140,.16)}
+:root[data-theme="light"] .intro .wcard.lock:not(.gridw) .ws{color:#535D88}
+@media (prefers-color-scheme:light){
+:root:not([data-theme="dark"]) .intro .wcard:not(.gridw){background:linear-gradient(160deg,color-mix(in srgb,var(--a) 24%,#fff),color-mix(in srgb,var(--a) 7%,#fff) 75%);border-color:color-mix(in srgb,var(--a) 40%,rgba(40,60,140,.18))}
+:root:not([data-theme="dark"]) .intro .wcard:not(.gridw)::before{opacity:.5}
+:root:not([data-theme="dark"]) .intro .wcard:not(.gridw) .wnum{color:#535D88}
+:root:not([data-theme="dark"]) .intro .wcard:not(.gridw) .wgo b{color:#141A40}
+:root:not([data-theme="dark"]) .intro .wcard:not(.gridw) .wd,.intro .wcard:not(.gridw) .wdr{color:#3E4770}
+:root:not([data-theme="dark"]) .intro .wcard:not(.gridw) .ws{color:#08776D}
+:root:not([data-theme="dark"]) .intro .wcard.done:not(.gridw) .ws{color:#975700}
+:root:not([data-theme="dark"]) .intro .wcard:not(.gridw) .wdr b{color:color-mix(in srgb,var(--h) 55%,#000)}
+:root:not([data-theme="dark"]) .intro .wcard:not(.gridw) .wdots i{background:rgba(20,30,80,.13)}
+:root:not([data-theme="dark"]) .intro .wcard:not(.gridw) .wdots i.on{background:var(--h);box-shadow:none}
+:root:not([data-theme="dark"]) .intro .wcard:not(.gridw) .wreset{border-color:rgba(8,135,124,.5);background:rgba(8,135,124,.1);color:#065F57}
+:root:not([data-theme="dark"]) .intro .wcard:not(.gridw) .wreset:hover{background:rgba(8,135,124,.2);color:#04463F}
+:root:not([data-theme="dark"]) .intro .wcard:not(.gridw) .wreset.cf{background:rgba(196,47,85,.12);border-color:#C42F55;color:#9B1F42}
+:root:not([data-theme="dark"]) .intro .wcard.lock:not(.gridw){filter:grayscale(1);opacity:.6;background:#F3F5FA;border-color:rgba(40,60,140,.16)}
+:root:not([data-theme="dark"]) .intro .wcard.lock:not(.gridw) .ws{color:#535D88}
+}
 </style>
 </head>
 <body>
@@ -523,32 +633,71 @@ body.tron .sheet{box-shadow:0 0 0 1px rgba(0,240,255,.1),0 18px 50px rgba(40,0,6
 
 <section class="intro" id="intro">
   <div class="intro-in">
-    <div class="ihead">
-      <h1>Filon<span>Bastion</span></h1>
-      <p>Extrais, raffine et défends ton dépôt. Toutes les tours sont disponibles dès le départ. Chaque monde a son relief, ses minerais, ses ennemis et un bâtiment spécial (onglet Spécial). Les vagues ne s’arrêtent jamais : construis la Merveille, verse-lui des ressources, puis tiens 3 minutes de siège pour libérer le monde suivant.</p>
-    </div>
-    <div class="coopbox">
-      <div class="nph"><b>Mode</b><div class="npseg mdseg" id="mdSeg" role="radiogroup" aria-label="Mode de jeu"></div><span id="mdD"></span></div>
-      <div class="nph"><b>Joueurs</b><div class="npseg" id="npSeg" role="radiogroup" aria-label="Nombre de joueurs"></div><span id="npD"></span></div>
-      <div class="nph"><b>Carte</b><div class="npseg mdseg" id="szSeg" role="radiogroup" aria-label="Taille de la carte"></div><span id="szD"></span></div>
-      <div class="slots" id="slots"></div>
-      <div class="net" id="netBox">
-        <div class="nh"><b>Jouer à distance</b><span>Chacun sur son appareil, connexion directe entre vos navigateurs</span></div>
-        <div class="nrow"><button id="hostBtn" class="nbtn pri">Héberger la partie</button><span class="nor">ou rejoindre :</span><input id="joinName" maxlength="14" placeholder="Ton prénom" autocomplete="off" class="jn"><input id="joinCode" maxlength="6" placeholder="Code reçu" autocomplete="off" spellcheck="false"><button id="joinBtn" class="nbtn">Rejoindre</button></div>
-        <div class="ncode" id="hostCode" hidden></div>
-        <p id="netSt" class="nst"></p>
+    <header class="ihead">
+      <div class="brand"><h1>Filon<span>Bastion</span></h1><p class="tag">Extrais, raffine et défends ton dépôt contre des vagues sans fin.</p></div>
+      <div class="itools">
+        <button class="itb" id="howBtn" type="button"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M9.6 9.3a2.5 2.5 0 1 1 3.4 2.3c-.6.3-1 .8-1 1.5v.4"/><circle cx="12" cy="17" r=".6" fill="currentColor"/></svg>Comment jouer</button>
+        <button class="itb" id="setBtn" type="button"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.8-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1.1-1.5 1.7 1.7 0 0 0-1.8.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.8 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.5-1.1 1.7 1.7 0 0 0-.3-1.8l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.8.3H9a1.7 1.7 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.8-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.8V9a1.7 1.7 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1z"/></svg>Paramètres</button>
       </div>
-      <p id="setupP"></p>
-    </div>
-    <div class="rndbox"><div><b>Partie aléatoire</b><span>Monde, couleurs, relief, dangers, minerais, ennemis et boss tirés au hasard. Elle se joue avec le mode, les joueurs et la difficulté choisis ici. Ni sauvegarde ni progression.</span></div><button id="rndBtn" class="nbtn pri">🎲 Lancer une partie aléatoire</button></div>
-    <div class="worlds" id="worlds"></div>
-    <div class="diff" id="diff"><div class="dh"><b>Difficulté des ennemis</b><span id="diffN"></span></div><div class="dseg" id="diffSeg" role="radiogroup" aria-label="Difficulté des ennemis"></div><p id="diffD"></p></div>
-    <p class="bonus" id="bonus"></p>
-    <div class="saveb"><button id="sndIntro" title="Couper ou activer le son"></button><button id="expBtn"></button><button id="impBtn"></button><input type="file" id="impFile" accept=".json,application/json" hidden><small id="saveInfo"></small></div>
-    <p class="keys credits">Musique, bruitages et graphismes sont créés en direct par le jeu (aucun enregistrement ni image empruntés). Polices Oxanium et Figtree : licence libre SIL OFL. Module réseau PeerJS : licence libre MIT.</p>
-    <p class="keys"><kbd>1</kbd> à <kbd>9</kbd> pour construire, <kbd>J</kbd> pour changer de joueur, <kbd>P</kbd> ou clic droit pour signaler un point, <kbd>S</kbd> pour le son, <kbd>Tab</kbd> pour changer de catégorie, <kbd>Espace</kbd> pour la pause, <kbd>F</kbd> pour la vitesse, <kbd>U</kbd> pour améliorer, <kbd>R</kbd> pour poster l’escouade d’une caserne, <kbd>V</kbd> pour les vagues auto, <kbd>X</kbd> pour l’auto-amélioration, <kbd>B</kbd> pour les bonus auto, <kbd>D</kbd> pour les foreuses auto. Le bouton maison en haut à droite ramène au menu (ta partie reste sauvegardée), le bouton ↻ recommence le monde sur une nouvelle carte.</p>
+    </header>
+
+    <section class="istep">
+      <h2><i>1</i>Mode de jeu</h2>
+      <div class="modes" id="mdSeg" role="radiogroup" aria-label="Mode de jeu"></div>
+      <div class="coopbox" id="setupBox">
+        <div class="nph" id="npRow"><b>Joueurs</b><div class="npseg" id="npSeg" role="radiogroup" aria-label="Nombre de joueurs"></div><span id="npD"></span></div>
+        <div class="nph"><b>Carte</b><div class="npseg mdseg" id="szSeg" role="radiogroup" aria-label="Taille de la carte"></div><span id="szD"></span></div>
+        <div class="slots" id="slots"></div>
+        <div class="net" id="netBox">
+          <div class="nh"><b>Jouer à distance</b><span>Chacun sur son appareil, connexion directe entre vos navigateurs</span></div>
+          <div class="nrow"><button id="hostBtn" class="nbtn pri">Héberger la partie</button><span class="nor">ou rejoindre :</span><input id="joinName" maxlength="14" placeholder="Ton prénom" autocomplete="off" class="jn"><input id="joinCode" maxlength="6" placeholder="Code reçu" autocomplete="off" spellcheck="false"><button id="joinBtn" class="nbtn">Rejoindre</button></div>
+          <div class="ncode" id="hostCode" hidden></div>
+          <p id="netSt" class="nst"></p>
+        </div>
+        <p id="setupP"></p><span id="mdD" class="mdd"></span>
+      </div>
+    </section>
+
+    <section class="istep">
+      <h2><i>2</i>Difficulté</h2>
+      <div class="diff" id="diff"><div class="dh"><b>Ennemis</b><span id="diffN"></span></div><div class="dseg" id="diffSeg" role="radiogroup" aria-label="Difficulté des ennemis"></div><p id="diffD"></p></div>
+    </section>
+
+    <section class="istep">
+      <h2><i>3</i>Choisis un monde pour lancer la partie</h2>
+      <p class="bonus" id="bonus"></p>
+      <div class="worlds" id="worlds"></div>
+      <div class="rndbox"><div><b>Envie de surprise ?</b><span>Monde, relief, minerais, ennemis et boss tirés au hasard, avec le mode et la difficulté choisis plus haut. Ni sauvegarde ni progression.</span></div><button id="rndBtn" class="nbtn pri">🎲 Partie aléatoire</button></div>
+    </section>
+
   </div>
 </section>
+
+<dialog id="setDlg" class="idlg" aria-labelledby="setT">
+  <div class="dlh"><h2 id="setT">Paramètres</h2><button class="dlx" data-close aria-label="Fermer">✕</button></div>
+  <h3>Thème</h3>
+  <div class="seg3" id="thSeg" role="radiogroup" aria-label="Thème">
+    <button role="radio" data-th="auto">Auto</button><button role="radio" data-th="light">Clair</button><button role="radio" data-th="dark">Sombre</button>
+  </div>
+  <p class="note" id="thD"></p>
+  <h3>Son</h3>
+  <button class="sw solo" role="switch" id="sndIntro" aria-checked="true"><i></i><span><b>Son activé</b>Musique et bruitages générés en direct</span></button>
+  <div class="sndbox" id="setSnd"></div>
+  <p class="note">D’autres réglages (instrument, sons de nature, musique adaptative) sont dans le bouton Son pendant la partie, touche S.</p>
+  <h3>Sauvegarde</h3>
+  <div class="saveb"><button id="expBtn"></button><button id="impBtn"></button><input type="file" id="impFile" accept=".json,application/json" hidden></div>
+  <p class="note" id="saveInfo"></p>
+</dialog>
+
+<dialog id="howDlg" class="idlg wide" aria-labelledby="howT">
+  <div class="dlh"><h2 id="howT">Comment jouer</h2><button class="dlx" data-close aria-label="Fermer">✕</button></div>
+  <p>Extrais, raffine et défends ton dépôt. Toutes les tours sont disponibles dès le départ. Chaque monde a son relief, ses minerais, ses ennemis et un bâtiment spécial (onglet Spécial).</p>
+  <p>Les vagues ne s’arrêtent jamais : construis la Merveille, verse-lui des ressources, puis tiens 3 minutes de siège pour libérer le monde suivant.</p>
+  <h3>Clavier</h3>
+  <p class="keys"><kbd>1</kbd> à <kbd>9</kbd> pour construire, <kbd>J</kbd> pour changer de joueur, <kbd>P</kbd> ou clic droit pour signaler un point, <kbd>S</kbd> pour le son, <kbd>Tab</kbd> pour changer de catégorie, <kbd>Espace</kbd> pour la pause, <kbd>F</kbd> pour la vitesse, <kbd>U</kbd> pour améliorer, <kbd>R</kbd> pour poster l’escouade d’une caserne, <kbd>V</kbd> pour les vagues auto, <kbd>X</kbd> pour l’auto-amélioration, <kbd>B</kbd> pour les bonus auto, <kbd>D</kbd> pour les foreuses auto.</p>
+  <p class="note">Le bouton maison en haut à droite ramène au menu (ta partie reste sauvegardée), le bouton ↻ recommence le monde sur une nouvelle carte.</p>
+  <p class="note">Musique, bruitages et graphismes sont créés en direct par le jeu. Polices Oxanium et Figtree : licence SIL OFL. Module réseau PeerJS : licence MIT.</p>
+</dialog>
 
 <dialog id="over">
   <h2 id="overT">Le dépôt est tombé</h2>
@@ -3270,7 +3419,7 @@ $('#mkBtn').onclick=()=>sheetKind==='market'?closeSheet():openSheet('market');
 $('#upBtn').onclick=()=>sheetKind==='up'?closeSheet():openSheet('up');
 function setSpeed(){ if(isGuest()){ netCmd('speed'); return; } speed=speed>=3?1:speed+1; $('#spdBtn').textContent='×'+speed; }
 $('#spdBtn').onclick=setSpeed;
-function sndIcon(){ const ic=SND.S.mute||SND.S.master<=0||(SND.S.music<=0&&SND.S.sfx<=0)?'mute':'snd'; $('#sndBtn').innerHTML=svg(ic); const b=$('#sndIntro'); if(b) b.innerHTML=svg(ic)+(SND.S.mute?'Son coupé':'Son activé'); }
+function sndIcon(){ const ic=SND.S.mute||SND.S.master<=0||(SND.S.music<=0&&SND.S.sfx<=0)?'mute':'snd'; $('#sndBtn').innerHTML=svg(ic); const b=$('#sndIntro'); if(b){ b.setAttribute('aria-checked',String(!SND.S.mute)); b.querySelector('b').textContent=SND.S.mute?'Son coupé':'Son activé'; } }
 $('#sndBtn').onclick=()=>sheetKind==='snd'?closeSheet():openSheet('snd');
 $('#sndIntro').onclick=()=>{ SND.unlock(); SND.set('mute',!SND.S.mute); sndIcon(); SND.play('click'); };
 /* clic discret sur chaque bouton de l'interface */
@@ -4404,9 +4553,11 @@ META.setup.np=clamp(META.setup.np|0||1,1,NPMAX); if(!Array.isArray(META.setup.ki
 const KIND=[['local','Ici','Sur cet écran : passe les commandes avec J'],['online','En ligne','Un coéquipier sur son appareil, avec le code'],['bot','Bot','Un joueur automatique']];
 function renderSetup(){
   const S=META.setup; if(S.mode==='pvp'&&S.np<2) S.np=2; const np=S.np, pv=S.mode==='pvp', tms=pv&&S.teams&&np>2; refreshCtl();
-  $('#mdSeg').innerHTML=[['coop','Coopération'],['pvp','Duel d’envois']].map(([k,l])=>`<button role="radio" data-md="${k}" aria-checked="${(S.mode||'coop')===k}">${l}</button>`).join('')+(pv&&np>2?`<button class="tmb" data-tm="1" aria-pressed="${!!S.teams}">${S.teams?'2 équipes':'Chacun pour soi'}</button>`:'');
-  $('#mdD').textContent=pv?(tms?'Équipe A contre équipe B : le dernier camp debout gagne':'Chacun pour soi : le dernier dépôt debout gagne')+(META.pvp&&META.pvp.g?' · '+META.pvp.w+' victoire'+(META.pvp.w>1?'s':'')+' sur '+META.pvp.g+' duel'+(META.pvp.g>1?'s':''):''):'Défendez-vous ensemble';
-  $('#npSeg').innerHTML=Array.from({length:NPMAX},(_,k)=>`<button role="radio" data-np="${k+1}" aria-checked="${k+1===np}">${k+1}</button>`).join('');
+  const md=pv?'pvp':np===1?'solo':'coop', solo=md==='solo';
+  $('#mdSeg').innerHTML=[['solo','Solo','👤','Toi seul face aux vagues, avec sauvegarde'],['coop','Coopération','🤝','De 2 à '+NPMAX+' : amis, bots ou en ligne'],['pvp','Duel','⚔️','Envoie des ennemis chez les autres']].map(([k,l,e,d])=>`<button class="mode" role="radio" data-md="${k}" aria-checked="${md===k}"><span class="e" aria-hidden="true">${e}</span><b>${l}</b><small>${d}</small></button>`).join('');
+  $('#npRow').hidden=solo; $('#slots').hidden=solo; $('#netBox').hidden=solo&&!NET.role;
+  $('#mdD').textContent=pv?(tms?'Équipe A contre équipe B : le dernier camp debout gagne':'Chacun pour soi : le dernier dépôt debout gagne')+(META.pvp&&META.pvp.g?' · '+META.pvp.w+' victoire'+(META.pvp.w>1?'s':'')+' sur '+META.pvp.g+' duel'+(META.pvp.g>1?'s':''):''):'';
+  $('#npSeg').innerHTML=Array.from({length:NPMAX-1},(_,k)=>`<button role="radio" data-np="${k+2}" aria-checked="${k+2===np}">${k+2}</button>`).join('')+(pv&&np>2?`<button class="tmb" data-tm="1" aria-pressed="${!!S.teams}">${S.teams?'2 équipes':'Chacun pour soi'}</button>`:'');
   $('#npD').textContent=pv?np+' dépôts · chacun reçoit la vague par ses propres entrées':np===1?'Solo, carte classique':np+' dépôts, carte agrandie, ennemis ×'+String(+(1+.7*(np-1)+.1*(np-1)**2).toFixed(1)).replace('.',',');
   const sz=mszOf(S.size), R=mapR(np,pv,sz), sp=spawns(np,pv,sz), gap=np>1?Math.round(Math.min(...sp.flatMap((a,i)=>sp.slice(i+1).map(b=>Math.hypot(a[0]-b[0],a[1]-b[1]))))):0;
   $('#szSeg').innerHTML=MSIZE.map(([l],k)=>`<button role="radio" data-sz="${k}" aria-checked="${k===sz}">${l}</button>`).join('');
@@ -4422,12 +4573,31 @@ function renderSetup(){
     (nLoc?' Sur cet écran, passe d’un joueur à l’autre avec les pastilles en haut à gauche ou la touche J.':'')+(nBot?' Les bots posent leurs tours, améliorent tout seuls et versent à la Merveille, mais c’est à vous de la poser.':'')+(nOn?' Les places « En ligne » libres sont tenues par un bot jusqu’à l’arrivée du joueur.':'');
   hostStatus();
 }
-$('#mdSeg').onclick=e=>{ const b=e.target.closest('[data-md]'), tm=e.target.closest('[data-tm]'); if(tm){ META.setup.teams=!META.setup.teams; saveMeta(); renderSetup(); return; } if(!b) return; META.setup.mode=b.dataset.md; saveMeta(); renderSetup(); renderWorlds(); };
+$('#mdSeg').onclick=e=>{ const b=e.target.closest('[data-md]'); if(!b) return; const S=META.setup, m=b.dataset.md;
+  if(m==='solo'){ if(S.np>1) S.cnp=S.np; S.mode='coop'; S.np=1; }
+  else { S.mode=m; if(S.np<2) S.np=clamp(S.cnp|0||2,2,NPMAX); }
+  saveMeta(); renderSetup(); renderWorlds(); };
 $('#szSeg').onclick=e=>{ const b=e.target.closest('[data-sz]'); if(!b) return; META.setup.size=+b.dataset.sz; saveMeta(); renderSetup(); };
-$('#npSeg').onclick=e=>{ const b=e.target.closest('[data-np]'); if(!b) return; META.setup.np=+b.dataset.np; if(META.setup.mode==='pvp'&&META.setup.np<2) META.setup.np=2; saveMeta(); renderSetup(); renderWorlds(); };
+$('#npSeg').onclick=e=>{ if(e.target.closest('[data-tm]')){ META.setup.teams=!META.setup.teams; saveMeta(); renderSetup(); return; } const b=e.target.closest('[data-np]'); if(!b) return; META.setup.np=+b.dataset.np; if(META.setup.mode==='pvp'&&META.setup.np<2) META.setup.np=2; saveMeta(); renderSetup(); renderWorlds(); };
 $('#slots').onclick=e=>{ const b=e.target.closest('[data-k]'); if(!b) return; const [p,k]=b.dataset.k.split(':'); META.setup.kind[+p]=k; saveMeta(); renderSetup(); };
 $('#slots').oninput=e=>{ const el=e.target.closest('[data-nm]'); if(!el) return; META.names[+el.dataset.nm]=el.value.slice(0,14); saveMeta(); };
 $('#joinName').value=META.joinName||META.names[0]||'';
+
+/* ---- Paramètres du menu : thème, son, sauvegarde ---- */
+const THKEY='filon-bastion-theme';
+function getTheme(){ try{ const t=localStorage.getItem(THKEY); return t==='light'||t==='dark'?t:'auto'; }catch(e){ return 'auto'; } }
+function setTheme(t){ try{ if(t==='auto') localStorage.removeItem(THKEY); else localStorage.setItem(THKEY,t); }catch(e){}
+  const r=document.documentElement; if(t==='auto') r.removeAttribute('data-theme'); else r.dataset.theme=t; renderTheme(); }
+function renderTheme(){ const t=getTheme(); for(const b of $('#thSeg').children) b.setAttribute('aria-checked',String(b.dataset.th===t));
+  $('#thD').textContent=t==='auto'?'Suit le réglage clair ou sombre de ton appareil.':t==='light'?'Menu, fenêtres et panneaux en clair. La barre du haut reste sombre pour rester lisible sur la carte.':'Menu, fenêtres et panneaux en sombre.'; }
+$('#thSeg').onclick=e=>{ const b=e.target.closest('[data-th]'); if(b) setTheme(b.dataset.th); };
+function renderSetSnd(){ const sl=(k,l)=>`<div class="sndr"><span>${l}</span><input type="range" min="0" max="100" step="1" value="${Math.round(SND.S[k]*100)}" data-snd2="${k}" aria-label="${l}"><b class="num" data-snd2v="${k}">${Math.round(SND.S[k]*100)} %</b></div>`;
+  $('#setSnd').innerHTML=sl('master','Volume général')+sl('music','Musique')+sl('sfx','Effets : tours, explosions, ennemis'); }
+$('#setSnd').oninput=e=>{ const el=e.target.closest('[data-snd2]'); if(!el) return; const k=el.dataset.snd2, v=+el.value/100; SND.unlock(); SND.set(k,v); const lb=$(`[data-snd2v="${k}"]`); if(lb) lb.textContent=Math.round(v*100)+' %'; sndIcon(); if(k==='sfx') SND.play('gun'); };
+$('#setBtn').onclick=()=>{ renderTheme(); renderSetSnd(); sndIcon(); saveInfo(); try{ $('#setDlg').showModal(); }catch(e){} };
+$('#howBtn').onclick=()=>{ try{ $('#howDlg').showModal(); }catch(e){} };
+for(const d of document.querySelectorAll('dialog.idlg')) d.addEventListener('click',e=>{ if(e.target.closest('[data-close]')) return d.close(); if(e.target!==d) return; const r=d.getBoundingClientRect(); if(e.clientX<r.left||e.clientX>r.right||e.clientY<r.top||e.clientY>r.bottom) d.close(); });
+sndIcon();
 renderSetup();
 /* ================= Démarrage ================= */
 resize();
